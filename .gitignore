@@ -1,0 +1,8 @@
+node_modules
+dist
+.vercel
+*.local
+
+# Source masters for the backgrounds — the shipped webp copies live in
+# src/assets. Keeping these out of git keeps a tribute site's repo light.
+*.png

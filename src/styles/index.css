@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tea: #1e3d2f;
+  --color-himal: #7ea8c4;
+  --color-gumba: #7a2e2a;
+  --color-brass: #c9a227;
+  --color-cream: #f4e8d7;
+  --color-kuiro: #d8d8d8;
+  --color-lamp: #e8b66b;
+  --color-rust: #9c5b3b;
+
+  --font-display: "Gelasio", serif;
+  --font-nepali: "Tiro Devanagari Hindi", serif;
+  --font-hand: "Kalam", cursive;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* ---- grading the painting ------------------------------------------------
+   Two attributes on <html>: data-time (the visitor's hour) and data-scene
+   (which painting). It is always misty — that is the weather of these hills. */
+
+:root {
+  --img-filter: none;
+  --tint: #f0c9a0;
+  --tint-op: 0;
+  --mist-op: 0.5;
+  /* Mist takes its colour from the painting it sits in, or it reads as a grey
+     film laid on top instead of air inside the picture. */
+  --mist-a: rgba(244, 232, 215, 0.95);
+  --mist-b: rgba(214, 220, 222, 0.8);
+}
+
+/* The painting is lit at golden hour, so dawn is close to untouched. */
+[data-time="dawn"] {
+  --img-filter: saturate(1.02);
+  --tint: #f0c9a0;
+  --tint-op: 0.08;
+}
+[data-time="day"] {
+  --img-filter: brightness(1.07) hue-rotate(-4deg);
+  --tint: #cfe2ee;
+  --tint-op: 0.1;
+}
+[data-time="dusk"] {
+  --img-filter: brightness(0.93) saturate(1.14);
+  --tint: #d9702f;
+  --tint-op: 0.22;
+}
+[data-time="night"] {
+  --img-filter: brightness(0.4) saturate(0.6) contrast(1.05);
+  --tint: #0f1a33;
+  --tint-op: 0.5;
+  --mist-op: 0.34;
+}
+
+/* The bazaar is painted at dusk with its lamps already lit — it carries its own
+   hour, so it takes only a fraction of the time-of-day grade, and its mist is
+   the cold violet of the sky above it rather than the warm cream of morning.
+   Must come after the time rules to win: same specificity, source order decides. */
+[data-scene="bazaar"] {
+  --img-filter: none;
+  --tint-op: 0.05;
+  --mist-op: 0.42;
+  --mist-a: rgba(196, 194, 224, 0.8);
+  --mist-b: rgba(140, 152, 190, 0.7);
+}
+[data-scene="bazaar"][data-time="night"] {
+  --img-filter: brightness(0.74) saturate(0.85);
+  --tint: #0f1a33;
+  --tint-op: 0.3;
+  --mist-op: 0.3;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #1b2a24;
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Devanagari collapses below 1.6 — matras collide with the shirorekha. */
+.ne {
+  font-family: var(--font-nepali);
+  line-height: 1.65;
+}
+
+.hand {
+  font-family: var(--font-hand);
+  line-height: 1.7;
+}
+
+/* Two-colour offset, misregistered by a hair — a 1986 cassette inlay card. */
+.print {
+  text-shadow: 1.5px 1.5px 0 var(--color-gumba);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+/* ---- ambient motion ------------------------------------------------------ */
+
+/* The painting can't move, so the light does. Slow enough that you only notice
+   it if you stop and look, which is the whole point of the site. */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.11) translate(-0.8%, -0.5%);
+  }
+}
+
+@keyframes steam {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  30% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-38px) scaleX(1.8);
+  }
+}
+
+/* Mist travels the whole width and wraps. The shift must equal the tile width
+   exactly or the band visibly jumps once per cycle. */
+@keyframes mistmove {
+  to {
+    background-position: 900px 0;
+  }
+}
+
+.mist-band {
+  background-repeat: repeat-x;
+  background-size: 900px 100%;
+  animation: mistmove 90s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes labelin {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) rotate(-1.5deg);
+  }
+  12%,
+  84% {
+    opacity: 1;
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4px) rotate(-1.5deg);
+  }
+}
+
+/* The disc is the actual YouTube iframe, cropped to a circle. */
+.ytHost iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.disc {
+  animation: spin 6s linear infinite;
+}
+
+/* Smoked glass with a brass hairline. No bevels, no gradients, no wood — the
+   painting is the only texture on the page. */
+.glass {
+  background: rgba(15, 25, 20, 0.55);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  border: 1px solid rgba(201, 162, 39, 0.16);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(244, 232, 215, 0.06);
+}
+
+/* Sliders are drawn as divs underneath and driven by a transparent native input
+   on top, so dragging, arrow keys and screen readers all keep working. */
+.bare {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ---- the player ----------------------------------------------------------
+   One bar along the bottom on every screen. No sheet, no expand, nothing to
+   discover — the same four controls whether you're on a phone or a laptop. */
+
+.bar {
+  position: fixed;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  z-index: 20;
+}
+
+@media (min-width: 768px) {
+  .bar {
+    right: auto;
+    bottom: 2rem;
+    left: 50%;
+    width: min(44rem, calc(100vw - 4rem));
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- the inlay card ------------------------------------------------------
+   Slides from the left so it never covers the deck. */
+
+.inlay {
+  position: fixed;
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.inlay[data-open="true"] {
+  transform: none;
+}
+
+@media (min-width: 768px) {
+  .inlay {
+    inset: 0 auto 0 0;
+    width: 26rem;
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* The disc is information, not decoration: a still disc on a playing song is
+     a lie. It keeps turning, slower. */
+  .disc {
+    animation: spin 20s linear infinite !important;
+  }
+}
