@@ -1,4 +1,5 @@
 import { GROUPS, songs, type Group } from "../data/songs";
+import { SONG_REQUEST_URL } from "../lib/config";
 
 type Props = {
   open: boolean;
@@ -136,7 +137,19 @@ export default function InlayCard({ open, onClose, index, onPick }: Props) {
           );
         })}
 
-        <p className="hand mt-6 border-t border-tea/15 pt-4 text-[13px] text-tea/55">
+        <div className="mt-6 border-t border-tea/15 pt-4">
+          <p className="ne text-[14px] text-tea/75">तपाईंको मनपर्ने गीत यहाँ छैन?</p>
+          <a
+            href={SONG_REQUEST_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="ne mt-1 inline-block text-[14px] text-gumba underline decoration-gumba/40 underline-offset-2"
+          >
+            गीत सुझाव दिनुहोस् · Suggest a song
+          </a>
+        </div>
+
+        <p className="hand mt-4 text-[13px] text-tea/55">
           सबै गीत आ-आफ्ना धनीका हुन्। यो एउटा सानो श्रद्धाञ्जली मात्र हो।
           <span className="mt-1 block font-sans text-[11px] not-italic">
             All songs belong to their respective owners. A non-commercial tribute.
