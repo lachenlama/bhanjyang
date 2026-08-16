@@ -4,6 +4,8 @@ import bazaarPhoneNarrow from "../assets/bazaar-phone-900.webp";
 import bazaarPhoneWide from "../assets/bazaar-phone-1350.webp";
 import bazaarWide from "../assets/bazaar-2400.webp";
 import chowrastaNarrow from "../assets/chowrasta-1280.webp";
+import chowrastaPhoneNarrow from "../assets/chowrasta-phone-900.webp";
+import chowrastaPhoneWide from "../assets/chowrasta-phone-1350.webp";
 import chowrastaWide from "../assets/chowrasta-2400.webp";
 
 // The painting is the emotional core, so everything laid over it is mist and
@@ -24,6 +26,10 @@ export const SCENES = [
     en: "Chowrasta",
     narrow: chowrastaNarrow,
     wide: chowrastaWide,
+    // Composed in portrait for phones, rather than a landscape crop stretched
+    // to fit — the bench, the statue and the pony stay in frame together.
+    portraitNarrow: chowrastaPhoneNarrow,
+    portraitWide: chowrastaPhoneWide,
     alt: "Chowrasta in Darjeeling at golden hour — the bandstand, Bhanubhakta's statue, ponies and pigeons on the flagstones, Kanchenjunga beyond the pines.",
   },
   {
