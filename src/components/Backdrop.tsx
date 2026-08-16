@@ -1,5 +1,7 @@
 import { useState } from "react";
 import bazaarNarrow from "../assets/bazaar-1280.webp";
+import bazaarPhoneNarrow from "../assets/bazaar-phone-900.webp";
+import bazaarPhoneWide from "../assets/bazaar-phone-1350.webp";
 import bazaarWide from "../assets/bazaar-2400.webp";
 import chowrastaNarrow from "../assets/chowrasta-1280.webp";
 import chowrastaWide from "../assets/chowrasta-2400.webp";
@@ -30,6 +32,11 @@ export const SCENES = [
     en: "Bazaar",
     narrow: bazaarNarrow,
     wide: bazaarWide,
+    // Composed in portrait for phones, rather than a landscape crop stretched
+    // to fit — the full street, gazebo and prayer flags stay in frame instead
+    // of being cropped off the sides.
+    portraitNarrow: bazaarPhoneNarrow,
+    portraitWide: bazaarPhoneWide,
     alt: "The market street below Chowrasta at dusk — a lit bakery and tea shop, wet cobbles, prayer flags, and lamps coming on across the hillside.",
   },
 ] as const;
@@ -48,26 +55,36 @@ export default function Backdrop({ scene }: { scene: SceneId }) {
           flash of empty dark. The one you aren't looking at loads at low priority. */}
       {SCENES.map((s) => {
         const active = s.id === scene;
+        const portrait = "portraitWide" in s ? s : null;
         return (
-          <img
-            key={s.id}
-            src={s.wide}
-            srcSet={`${s.narrow} 1280w, ${s.wide} 2400w`}
-            /* A cover-cropped 16:9 image on a portrait phone renders about twice
-               as wide as the viewport, so 100vw would under-select and ship a
-               soft image. Tell the browser what it will actually paint. */
-            sizes="(orientation: portrait) 200vw, 100vw"
-            alt={active ? s.alt : ""}
-            fetchPriority={active ? "high" : "low"}
-            onLoad={() => setLoaded((l) => (l.includes(s.id) ? l : [...l, s.id]))}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ${
-              active && loaded.includes(s.id) ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              filter: "var(--img-filter)",
-              animation: "breathe 140s ease-in-out infinite",
-            }}
-          />
+          <picture key={s.id}>
+            {portrait && (
+              <source
+                media="(orientation: portrait)"
+                srcSet={`${portrait.portraitNarrow} 900w, ${portrait.portraitWide} 1350w`}
+                sizes="100vw"
+              />
+            )}
+            <img
+              src={s.wide}
+              srcSet={`${s.narrow} 1280w, ${s.wide} 2400w`}
+              /* A cover-cropped 16:9 image on a portrait phone renders about
+                 twice as wide as the viewport, so 100vw would under-select and
+                 ship a soft image. Scenes with a real portrait crop (above)
+                 never fall through to this — it's only for ones that don't. */
+              sizes="(orientation: portrait) 200vw, 100vw"
+              alt={active ? s.alt : ""}
+              fetchPriority={active ? "high" : "low"}
+              onLoad={() => setLoaded((l) => (l.includes(s.id) ? l : [...l, s.id]))}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ${
+                active && loaded.includes(s.id) ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                filter: "var(--img-filter)",
+                animation: "breathe 140s ease-in-out infinite",
+              }}
+            />
+          </picture>
         );
       })}
 
