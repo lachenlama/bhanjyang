@@ -1,6 +1,8 @@
-# Bhanjyang — what this could become
+# गोर्खाल्याण्ड / gorkha.land — what this could become
 
-Written August 2026, against the live site at bhanjyang.vercel.app.
+Written August 2026, against the live site — then at bhanjyang.vercel.app, since
+renamed to गोर्खाल्याण्ड and moved to gorkha.land. The analysis below predates the
+rename; where it says "Bhanjyang," read "the site."
 
 This is a strategy document, not a pitch deck. Where I think an idea is wrong I say
 so, and where numbers are guesses I label them as guesses.
@@ -260,9 +262,10 @@ it's a logistics company, and you should know that going in.
 6. Only if steps 3–4 work, open the shop with 20 items.
 7. Revisit the marketplace in two years, or never.
 
-The domain: **bhanjyang.art** is a fine second domain, but get **bhanjyang.com**
-if it's free, and **.in** if you'll sell domestically — Indian buyers trust it.
-Point them all at the same place.
+The domain: settled — **gorkha.land** is live and the site is named for it. `.land`
+does the wordmark's work for free. Worth grabbing **gorkhaland.in** defensively if
+it's cheap (Indian buyers trust `.in` if a shop ever happens) and pointing it here,
+but that's housekeeping, not strategy. The name is no longer an open question.
 
 The riskiest thing you can do right now is add commerce to a site that has not
 yet proved anyone will come back to it twice. Get retention first. The money is

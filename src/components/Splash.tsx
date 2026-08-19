@@ -12,6 +12,12 @@ type Props = {
 // NOTE: every Nepali line here should be checked by someone from the hills before
 // launch. Written Nepali carries register the way English carries accent, and the
 // hills' Nepali is not Kathmandu broadcast Nepali.
+//
+// This goes double for the identity lines. The site names itself गोर्खाल्याण्ड and
+// speaks to a home that has never been called by its own name on paper — that is
+// a sentence the community gets to phrase, not a document. Keep it at belonging
+// and recognition; the moment it reads as a slogan, the room becomes an argument
+// and stops being the one place that isn't one.
 
 export default function Splash({ open, ready, onEnter, dedication, song }: Props) {
   return (
@@ -63,9 +69,14 @@ export default function Splash({ open, ready, onEnter, dedication, song }: Props
           <path d="M37 74 h46" opacity="0.5" />
         </svg>
 
-        <h1 className="ne print text-6xl text-cream md:text-7xl">भञ्ज्याङ</h1>
-        <p className="mt-3 font-display text-[13px] tracking-[0.42em] text-brass uppercase">
-          Bhanjyang
+        {/* Longer than भञ्ज्याङ was, so it steps down on narrow phones rather than
+            running off the frame. The domain is the Roman wordmark — .land does
+            the work, so it stays lowercase and unspaced enough to read as one word. */}
+        <h1 className="ne print text-[2.4rem] text-cream sm:text-5xl md:text-6xl">
+          गोर्खाल्याण्ड
+        </h1>
+        <p className="mt-3 font-display text-[13px] tracking-[0.32em] text-brass">
+          gorkha.land
         </p>
 
         {dedication ? (
@@ -83,10 +94,10 @@ export default function Splash({ open, ready, onEnter, dedication, song }: Props
         ) : (
           <>
             <p className="ne mx-auto mt-8 max-w-sm text-xl text-cream/85">
-              यहाँ अझै पुराना गीत बज्छ
+              नक्सामा नाम छैन, घर भने यहीँ छ
             </p>
             <p className="mt-1 font-display text-[15px] text-cream/50 italic">
-              Here, the old songs still play.
+              Unnamed on any map. Still home — and here, the old songs still play.
             </p>
           </>
         )}
@@ -104,6 +115,17 @@ export default function Splash({ open, ready, onEnter, dedication, song }: Props
           यो झ्याल खुला राख्नुहोला
           <span className="mt-1 block font-sans text-[11.5px] not-italic">
             Keep this window open — the songs stop if your phone locks.
+          </span>
+        </p>
+
+        {/* The one statement of who this is for. It sits on language and place,
+            never on one ethnicity — the thread running through Tamang, Rai, Limbu,
+            Gurung, Newar, Sherpa, Bhutia, Kami, Damai, Sarki and the Lepcha who
+            were here first is Nepali, not any single group's iconography. */}
+        <p className="ne mx-auto mt-7 max-w-xs text-[13.5px] leading-relaxed text-cream/45">
+          हाम्रो पहाड, हाम्रो भाषा, हाम्रो गीत।
+          <span className="mt-1 block font-sans text-[11.5px] not-italic">
+            Our hills, our language, our songs.
           </span>
         </p>
 

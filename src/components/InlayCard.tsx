@@ -51,7 +51,7 @@ export default function InlayCard({ open, onClose, index, onPick }: Props) {
     >
       <header className="flex items-start justify-between border-b border-tea/15 px-6 pt-6 pb-4">
         <div>
-          <p className="hand text-[13px] text-gumba">भञ्ज्याङ — Side A / Side B</p>
+          <p className="hand text-[13px] text-gumba">गोर्खाल्याण्ड — Side A / Side B</p>
           <h2 className="ne text-2xl">गीतहरू</h2>
         </div>
         <button
@@ -148,6 +148,17 @@ export default function InlayCard({ open, onClose, index, onPick }: Props) {
             गीत सुझाव दिनुहोस् · Suggest a song
           </a>
         </div>
+
+        {/* The drawer is the deeper surface — you only get here if you stayed. So
+            the longer line lives here rather than on the splash, where it would
+            have to argue with a stranger. Have someone from the hills read it. */}
+        <p className="hand mt-6 border-t border-tea/15 pt-4 text-[13.5px] text-tea/70">
+          नाम मागेको सय वर्ष भयो। त्यत्तिका वर्ष, गीतले नै यो ठाउँ बचाइराख्यो।
+          <span className="mt-1 block font-sans text-[11.5px] not-italic">
+            A hundred years of asking to be called by our own name. All that time, it
+            was the songs that kept the place alive.
+          </span>
+        </p>
 
         <p className="hand mt-4 text-[13px] text-tea/55">
           सबै गीत आ-आफ्ना धनीका हुन्। यो एउटा सानो श्रद्धाञ्जली मात्र हो।

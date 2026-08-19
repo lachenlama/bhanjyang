@@ -1,4 +1,4 @@
-# Bhanjyang — build plan
+# गोर्खाल्याण्ड / gorkha.land — build plan
 
 A single-page audio-visual site for the Gorkha/Nepali hills: an illustrated Darjeeling
 scene that breathes, and old Nepali songs playing off a vintage player.
@@ -7,12 +7,14 @@ scene that breathes, and old Nepali songs playing off a vintage player.
 
 ## 1. Name
 
-**Bhanjyang** (भञ्ज्याङ) — the saddle of a mountain pass, the place you stop, catch
-your breath, drink tea, and talk to strangers before walking on. That is exactly what
-this site is. Short, ownable, nobody outside the community uses the word.
+**गोर्खाल्याण्ड / gorkha.land.** The `.land` TLD makes the wordmark read as Gorkhaland
+without a gloss, and the site now says plainly who it is for. See design.md §9 for the
+register that comes with the name — identity and recognition, never agitation.
 
-Runners-up: **Chiya Guff** (चिया गफ — tea and chatter), **Jhyal** (झ्याल — window).
-"Saloon"/"Cassette Club" are borrowed frames; Bhanjyang is ours.
+*Previously* **Bhanjyang** (भञ्ज्याङ) — the saddle of a mountain pass, the place you stop,
+catch your breath, drink tea, and talk to strangers before walking on. It described the
+site well and lost only to the domain. Runners-up were **Chiya Guff** (चिया गफ — tea and
+chatter) and **Jhyal** (झ्याल — window).
 
 ---
 

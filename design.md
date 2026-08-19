@@ -1,4 +1,4 @@
-# Bhanjyang — design direction
+# गोर्खाल्याण्ड / gorkha.land — design direction
 
 A nostalgic audio-visual room for the Nepali-speaking hills: Darjeeling, Kurseong,
 Kalimpong, Mirik, Sikkim, and everyone who left.
@@ -10,8 +10,13 @@ Kalimpong, Mirik, Sikkim, and everyone who left.
 **Drop "Saloon."** In hill English, a *saloon* is where you get a haircut — every town
 has a New Style Saloon with a hand-painted sign. To the actual audience, "Pahad Saloon"
 reads as a barbershop. The word only works if you've seen saloon.wtf, and nobody's aama
-has. Use **Bhanjyang** (भञ्ज्याङ) — the saddle of a pass, where you stop, drink tea, and
-talk to strangers before walking on. Nobody has to have it explained to them.
+has.
+
+*Superseded: the name is now* **गोर्खाल्याण्ड / gorkha.land.** Bhanjyang (भञ्ज्याङ) — the
+saddle of a pass, where you stop for tea and talk to strangers before walking on — was
+the working name through the first build, and it was a good one. It lost to the domain:
+`.land` makes the wordmark read as Gorkhaland for free, and no gloss is needed for
+anyone it was made for. See §9, which was rewritten when this changed.
 
 **The toy train is blue, not red.** The DHR B-class locos are famously blue. This is the
 kind of detail the audience notices in half a second and the rest of the internet never
@@ -223,17 +228,36 @@ As load-bearing as anything above:
 - No infinite scroll, no recommendations, no autoplay of a "similar" song.
 - No spinner. While things load, the hills assemble layer by layer — sky, ridge, hills,
   pines. Loading becomes dawn.
-- **No politics.** No flags, no slogans, no map, no Gorkhaland. Not because it doesn't
-  matter — because for a lot of visitors 2017 means closed schools and a shut-down
-  summer, and this room is meant to be the one place that isn't about that. Keep it at
-  *ghar*, never at *statehood*. If someone opens this and feels argued with, it has
-  failed at the only thing it was for.
+- **Identity, yes. Agitation, no.** *Rewritten. This rule used to read "No politics —
+  no flags, no slogans, no map, no Gorkhaland," and then the site took the name.*
 
-One nuance in the same spirit: "Gorkha" names a community that includes Tamang, Rai,
-Limbu, Gurung, Newar, Sherpa, Bhutia, Kami, Damai, Sarki — and the Lepcha, who were
-here first. The thread holding it together is the **language**, not any one group. So
-the site's identity should sit on Nepali, chiya, kuiro and the hills, never on one
-ethnicity's iconography.
+  The reasoning behind the old rule still holds and still binds: for a lot of visitors
+  2017 means closed schools and a shut-down summer, and this room is meant to be the
+  one place that isn't about that. **If someone opens this and feels argued with, it
+  has failed at the only thing it was for.** That sentence survives every revision.
+
+  What changed is the recognition that declining to say the name was itself a position.
+  The site is called गोर्खाल्याण्ड and says plainly that this is a home which has never
+  been called by its own name on paper. Naming that is not the same as demanding it.
+
+  Concretely, where the line falls:
+
+  | Belongs | Doesn't |
+  |---|---|
+  | हामी यहीँका हौँ — *we are of this place* | Slogans, chants, "we demand" |
+  | *Unnamed on any map, still home* | Party names or colours — GJM, GNLF, anyone |
+  | *A hundred years of asking* | Martyr imagery, body counts, 2017 as grievance |
+  | हाम्रो पहाड, हाम्रो भाषा, हाम्रो गीत | A map with a border drawn on it |
+
+  The test: a hill visitor who is exhausted by all of it should still be able to sit
+  in this room. Longing passes that test. A demand does not.
+
+This nuance is now *more* load-bearing, not less: "Gorkha" names a community that
+includes Tamang, Rai, Limbu, Gurung, Newar, Sherpa, Bhutia, Kami, Damai, Sarki — and
+the Lepcha, who were here first. The thread holding it together is the **language**,
+not any one group. So the site's identity sits on Nepali, chiya, kuiro and the hills,
+never on one ethnicity's iconography. A site called Gorkhaland that reads as one
+group's property would exclude the exact people the name is supposed to gather.
 
 ---
 
@@ -244,7 +268,9 @@ Keep, because they're cheap and they land:
 - Hover the window → mist thickens slightly.
 - Tap the cup → one puff of steam. (Fine on touch. A hover-only easter egg isn't.)
 - Idle five minutes → the room dims toward night, music continuing, and one line settles
-  over the glass: **टाढा भए पनि घर यहीँ छ** — *even far away, home is here.*
+  over the glass: **हामी यहीँका हौँ** — *we are of this place.* (Was *टाढा भए पनि घर यहीँ छ*,
+  even far away home is here — the new line says belonging rather than distance, which
+  is the register of §9.)
 
 Cut:
 
@@ -300,14 +326,17 @@ So never show `Error 150`. Show:
 Dark, misty, still. A single line drawing — a glass of chiya, steam rising — not a cup;
 hill stalls serve tea in small glasses, and everyone from there knows the difference.
 
-**भञ्ज्याङ**, small Roman *Bhanjyang* beneath.
+**गोर्खाल्याण्ड**, small Roman *gorkha.land* beneath — lowercase, letter-spaced, so the
+domain reads as the wordmark. It steps down to 2.4rem on narrow phones; the word is
+twice the width भञ्ज्याङ was and will run off a 360px frame at the old size.
 
-Then the tagline, which should be one plain sentence in Nepali with an English line
-under it. Candidates:
+Then the tagline, one plain sentence in Nepali with an English line under it. Built:
 
-- पुराना गीत, पहाडको माया
-- यहाँ अझै पुराना गीत बज्छ — *here, the old songs still play*
-- घर टाढा छ, गीत छेउमै — *home is far, the songs are close*
+- **नक्सामा नाम छैन, घर भने यहीँ छ** — *Unnamed on any map. Still home — and here, the
+  old songs still play.* Carries both beats: the recognition and the reason to stay.
+
+Earlier candidates, kept for reference: पुराना गीत, पहाडको माया · यहाँ अझै पुराना गीत बज्छ ·
+घर टाढा छ, गीत छेउमै.
 
 *Pick these with native speakers.* Written Nepali carries register the way English
 carries accent, and the hills' spoken Nepali is not Kathmandu broadcast Nepali. A line
@@ -323,11 +352,28 @@ Fade out like fog lifting, 1.2s, not a slide or a wipe.
 
 ## 14. Footer
 
-> हाम्रो पहाड, हाम्रो गीत, हाम्रो माया।
+On the splash, under the door:
+
+> हाम्रो पहाड, हाम्रो भाषा, हाम्रो गीत।
 >
-> Built for the Nepali-speaking hills — Darjeeling, Kurseong, Kalimpong, Mirik, Sikkim,
-> and wherever you're reading this from. No tracking, no accounts, nothing stored.
-> All songs belong to their respective owners. A non-commercial tribute.
+> Our hills, our language, our songs.
+
+*माया* became *भाषा* — love became language — because §9 makes the language the thread
+that holds the community together, and the footer is where that should be said.
+
+In the inlay drawer, which you only reach by staying:
+
+> नाम मागेको सय वर्ष भयो। त्यत्तिका वर्ष, गीतले नै यो ठाउँ बचाइराख्यो।
+>
+> A hundred years of asking to be called by our own name. All that time, it was the
+> songs that kept the place alive.
+
+The longer line lives in the drawer rather than on the splash on purpose: on the front
+door it would have to argue with a stranger. Plus, everywhere:
+
+> Built for the Nepali-speaking hills — Darjeeling, Kurseong, Kalimpong, Mirik, Dooars,
+> Sikkim, and wherever you're reading this from. No tracking, no accounts, nothing
+> stored. All songs belong to their respective owners. A non-commercial tribute.
 
 ---
 

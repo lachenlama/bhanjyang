@@ -203,7 +203,7 @@ export default function App() {
         }`}
         aria-hidden
       >
-        <p className="ne px-8 text-center text-2xl text-cream/70">टाढा भए पनि घर यहीँ छ</p>
+        <p className="ne px-8 text-center text-2xl text-cream/70">हामी यहीँका हौँ</p>
       </div>
 
       <Splash
